@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+        <script type=text/javascript>
+            $(function() {
+                
+              console.log("JQuery Running");
+            });
+        </script>
+        <style>
+            #div1{
+                width:60%;
+                margin:0 auto;
+            }
+        </style>
+    </head>
+
+    <body class="container" style="background-image: url(login-register.png)">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="#">My Project</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/Dashboard">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/CloudProviderDataListing">Cloud Provider</a>
+              </li>
+             <li class="nav-item active">
+                <a class="nav-link" href="/VideoDataListing">Video Data</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Blockchain
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/BlockChainGeneration">Blockchain Generation</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/BlockChainReport">Blockchain Report</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Reports
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/CloudReportGeneration">Cloud Report</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  System
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="/RoleListing">Role</a>
+                  <a class="dropdown-item" href="/UserListing">User</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="/ChangePassword">Change Password</a>
+                </div>
+              </li>
+              
+              
+              <li class="nav-item">
+                <a class="nav-link" href="/">Logout</a>
+              </li>
+            </ul>
+            
+          </div>
+        </nav>
+        <br/>
+        <div class="content container">
+            {% block content %}
+            
+            {% endblock  %}
+        </div>
+    </body>
+
+</html>

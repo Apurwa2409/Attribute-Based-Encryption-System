@@ -1,0 +1,26 @@
+{% extends "Super.html" %}
+
+{% block content %}
+    <h2>Blockchain Generation</h2>
+        <form id="frm" name="frm" method="post" action="/ProcessBlockchainGeneration">
+    
+        
+        
+      <div class="form-group row">
+        <label for="Author" class="col-sm-6 col-form-label">No of Blocks Are Created</label>
+        <div class="col-sm-6">
+          {{blocksCreated}}
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="Author" class="col-sm-6 col-form-label">No of Blocks Yet to be Created</label>
+        <div class="col-sm-6">
+          {{blocksNotCreated}}
+        </div>
+      </div>
+      <div class="text-center">
+            <button type="submit" class="btn btn-outline-primary btn-sm ">Generate Blocks</button>
+            <a href="/BlockChainGeneration" class="btn btn-outline-primary btn-sm ">Cancel</a>            
+      </div>
+    </form>
+{% endblock %}

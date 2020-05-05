@@ -1,0 +1,33 @@
+{% extends "Super.html" %}
+
+{% block content %}
+    <h2>Cloud Report</h2>
+<div class="text-left m-5"><a href="/UserOperation?operation=Create" class="btn btn-outline-info btn-sm ">Create</a></div>
+    <table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      
+      <th scope="col">Cloud Provider Name</th>
+      <th scope="col">Storage Space</th>
+      <th scope="col">Storage Utilized</th>
+      <th scope="col">Usage Cost / GB</th>
+      <th scope="col">Current Usage Cost</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in records %}
+        <tr>
+            <td>{{ row.roleModel.roleName }}</td>
+            <td>{{ row.emailID}}</td>
+            <td>{{ row.userName }}</td>
+            <td>
+                <a href="/UserOperation?operation=Edit&unqid={{row.userID}}" class="btn btn-outline-info btn-sm ">Edit</a>
+                <a href="/UserOperation?operation=Delete&unqid={{row.userID}}" class="btn btn-outline-warning btn-sm ">Delete</a>
+            </td>
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<div class="text-center"><a href="/UserOperation?operation=Create" class="btn btn-outline-info btn-sm ">Create</a></div>
+{% endblock %}

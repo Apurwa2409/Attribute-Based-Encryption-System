@@ -1,0 +1,49 @@
+{% extends "Super.html" %}
+
+{% block content %}
+    <h2>Video Data Information</h2>
+    <form action="/VideoDataListing">
+      <div class="form-group row">
+        <label for="searchData" class="col-sm-2 col-form-label">Author</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="searchData" name="searchData" placeholder="" value="{{ searchData }}" />
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-12 text-center">
+          <input type="submit" class="btn btn-primary" value="Submit" />
+        </div>
+      </div>
+    </form>
+<div class="text-left m-5"><a href="/VideoDataOperation?operation=Create" class="btn btn-outline-info btn-sm ">Create</a></div>
+    <table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Cloud Provider</th>
+      <th scope="col">Author</th>
+      <th scope="col">Keywords</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in records %}
+        <tr>
+            <td>{{ row.cloudProviderModel.cloudProviderName }}</td>
+            <td>{{ row.author}}</td>
+            <td>{{ row.keywords }}</td>
+            <td>
+                <a href="/VideoDataOperation?operation=Edit&unqid={{row.videoID}}" class="btn btn-outline-info btn-sm ">Edit</a>
+                <a href="/VideoDataOperation?operation=Delete&unqid={{row.videoID}}" class="btn btn-outline-warning btn-sm ">Delete</a>
+                {% if row.isDownloadedToServer == False %}
+                    <a href="/FTPDownload?operation?operation=Server&unqid={{row.videoID}}" class="btn btn-outline-secondary btn-sm ">Download To Server</a>
+                {% endif %}
+                {% if row.isDownloadedToServer == True %}
+                    <a target="_blank" href="{{ url_for('static', filename='UPLOADED_FILES/'+row.videoFileName) }}" class="btn btn-outline-secondary btn-sm ">Download To Client</a>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<div class="text-center"><a href="/VideoDataOperation?operation=Create" class="btn btn-outline-info btn-sm ">Create</a></div>
+{% endblock %}

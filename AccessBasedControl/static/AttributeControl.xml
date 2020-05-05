@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Attributes>
+    <Attribute>
+        <AttributeName>IPControl</AttributeName>
+        <UserID>test@test.com</UserID>
+        <IPAddress>127.0.1.1</IPAddress>
+    </Attribute>
+    <Attribute>
+        <AttributeName>TimeControl</AttributeName>
+        <UserID>test@test.com</UserID>
+        <canCloudProviderA>
+            <AttributeFromTime>20:00</AttributeFromTime>
+            <AttributeToTime>6:00</AttributeToTime>
+        </canCloudProviderA>
+
+        <canBlockchainGenerationA>
+            <AttributeFromTime>15:00</AttributeFromTime>
+            <AttributeToTime>8:00</AttributeToTime>
+        </canBlockchainGenerationA>
+        <canBlockchainReportA>
+            <AttributeFromTime>16:00</AttributeFromTime>
+            <AttributeToTime>9:00</AttributeToTime>
+        </canBlockchainReportA>
+        <canRoleA>
+            <AttributeFromTime>17:00</AttributeFromTime>
+            <AttributeToTime>10:00</AttributeToTime>
+        </canRoleA>
+        <canUserA>
+            <AttributeFromTime>18:00</AttributeFromTime>
+            <AttributeToTime>11:00</AttributeToTime>
+        </canUserA>
+    </Attribute>
+</Attributes>

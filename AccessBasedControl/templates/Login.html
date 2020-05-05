@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Pacifico" rel="stylesheet">
+       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+        
+        <style>
+            body{
+                background: url(static/login-register.jpg) center center no-repeat #d2d6de;
+                background-size: cover;
+                height: 100%;
+                width: 100%;
+                
+            }
+            .login-box {
+                width: 360px;
+                margin: 7% auto;
+            }
+            .login-logo{
+                font-size: 46px;
+                color: #a5ffff;
+                font-weight:bold;
+                font-family: 'Indie Flower', cursive;s
+            }
+            .login-logo, .register-logo {
+                font-size: 35px;
+                text-align: center;
+                margin-bottom: 25px;
+                font-weight: 300;
+            }
+            .login-box-body, .register-box-body {
+                background: rgba(255, 255, 255, .9);
+                padding: 20px;
+                border-top: 0;
+                color: #666;
+                border-radius: 5px;
+                box-shadow: 0 2px 2px 0 rgba(169, 169, 169, .14), 0 3px 1px -2px rgba(169, 169, 169, .2), 0 1px 5px 0 rgba(169, 169, 169, .12);
+            }
+            .login-box-msg, .register-box-msg {
+                margin: 0;
+                text-align: center;
+                padding: 0 20px 20px;
+                font-family: 'Pacifico', cursive;
+                font-size: 24px;
+            }
+        </style>
+    </head>
+
+    <body class="container">
+        <div class="login-box">
+        <h1 class="text-center mb-3" style="color:white;">BlockChain Based Access Control System  </h1>
+            
+            <div class="login-box-body">
+                <p class="login-box-msg">Sign in to start your session</p>
+                {% if processResult | length > 0 %}
+                    <div class="alert alert-danger m-3">{{ processResult }}</div>
+                {% endif %}
+                <form action="/processLogin" method="post">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                    </div>
+                      <input type="emailid" name="emailid" id="emailid" class="form-control" placeholder="Email ID" required/>
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon2">P</span>
+                    </div>
+                      <input type="password" name="password" id="password" class="form-control" placeholder="Password" required/>
+                  </div>
+                  <div class="row">
+                    
+                    
+                    <!-- /.col -->
+                    <div class="col-12 text-center">
+                      <button type="submit" class="btn btn-primary btn-block btn-flat margin-top-10">SIGN IN</button>
+                    </div>
+                    <div class="col-12 text-right mt-5">
+                      <a href="/ForgotPassword">Forgot Password</a>
+                    </div>
+                    <!-- /.col -->
+                  </div>
+                </form>
+            
+            </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    </body>
+
+</html>

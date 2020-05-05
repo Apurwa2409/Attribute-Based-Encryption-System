@@ -1,0 +1,37 @@
+{% extends "Super.html" %}
+
+{% block content %}
+    <h2>{{operation}}  Cloud Provider</h2>
+    <form id="frm" name="frm" method="post" action="/ProcessCloudProviderDataOperation">
+    
+        <input type="hidden" name="operation" value="{{operation}}"/>
+        <input type="hidden" name="unqid" value="{{row.cloudProviderID}}"/>
+        
+      <div class="form-group row">
+        <label for="Author" class="col-sm-2 col-form-label">Cloud Provider Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="cloudProviderName" id="cloudProviderName" placeholder="Cloud Provider Name" value="{{row.cloudProviderName}}" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="Keywords" class="col-sm-2 col-form-label">Storage Space in GB</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="storageSpace" id="storageSpace" placeholder="Storage Space" value="{{row.storageSpace}}" required>
+        </div>
+      </div>
+
+      
+      <div class="form-group row">
+        <label for="FileSize" class="col-sm-2 col-form-label">Usage Cost Per GB</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="usageCostPerGB" id="usageCostPerGB" placeholder="Usage Cost Per GB" value="{{row.usageCostPerGB}}" required>
+        </div>
+      </div>
+      
+      <div class="text-center">
+            <button type="submit" class="btn btn-outline-primary btn-sm ">{{operation}}</button>
+            <a href="/FrmCancel" class="btn btn-outline-primary btn-sm ">Cancel</a>            
+      </div>
+    </form>
+    
+{% endblock %}

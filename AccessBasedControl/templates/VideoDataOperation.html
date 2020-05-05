@@ -1,0 +1,62 @@
+{% extends "Super.html" %}
+
+{% block content %}
+    <h2>{{operation}} Video Data</h2>
+    <form id="frm" name="frm" method="post" action="/ProcessVideoDataOperation" enctype="multipart/form-data">
+    
+        <input type="hidden" name="operation" value="{{operation}}"/>
+        <input type="hidden" name="unqid" value="{{row.videoID}}"/>
+        
+      <div class="form-group row">
+        <label for="Author" class="col-sm-2 col-form-label">Author</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="author" id="author" placeholder="Author" value="{{row.author}}" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="Keywords" class="col-sm-2 col-form-label">Keywords</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="keywords" id="keywords" placeholder="Keywords" value="{{row.keywords}}" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="mediaFormat" class="col-sm-2 col-form-label">Media Format</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" {{'readonly' if operation == 'Delete'}} name="mediaFormat" id="mediaFormat" placeholder="Media Format" value="{{row.mediaFormat}}" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="closedCaption" class="col-sm-2 col-form-label">Closed Caption</label>
+        <div class="col-sm-10">
+          <textarea rows="5" cols="100" class="form-control" {{'readonly' if operation == 'Delete'}} name="closedCaption" id="closedCaption"  required>{{row.closedCaption}}</textarea>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="contentData" class="col-sm-2 col-form-label">Content Data</label>
+        <div class="col-sm-10">
+          <textarea rows="5" cols="100" class="form-control" {{'readonly' if operation == 'Delete'}} name="contentData" id="contentData"  required>{{row.closedCaption}}</textarea>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="FileSize" class="col-sm-2 col-form-label">Cloud Provider ID</label>
+        <div class="col-sm-10">
+            <select name="cloudProviderID" {{'disabled' if operation == 'Delete'}}>
+            {% for cloudProviderDDObj in cloudProviderDDList %}
+                <option {{'selected' if cloudProviderDDObj.cloudProviderID == row.cloudProviderModel.cloudProviderID}} value="{{cloudProviderDDObj.cloudProviderID}}">{{cloudProviderDDObj.cloudProviderName}}</option>
+            {% endfor %}
+            </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="filetoupload" class="col-2 col-form-label">Video To Upload</label>
+        <div class="col-10">
+            <input type="file" class="" id="filetoupload" name="filetoupload" {{'required' if operation == "Create"}}>
+        </div>
+      </div>
+      <div class="text-center">
+            <button type="submit" class="btn btn-outline-primary btn-sm ">{{operation}}</button>
+            <a href="/VideoDataListing" class="btn btn-outline-primary btn-sm ">Cancel</a>            
+      </div>
+    </form>
+    
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends "Super.html" %}
+
+{% block content %}
+    {% if errorResult | length == 0 %}
+        <h2>Application Error Occured</h2>
+    {% endif %} 
+    {% if errorResult | length > 0 %}
+            <h2 class="alert {{'alert-success' if errType == 'Success' }} {{' alert-danger' if errType == 'Error' }}">{{ errorResult }}</h2>
+    {% endif %} 
+{% endblock %}

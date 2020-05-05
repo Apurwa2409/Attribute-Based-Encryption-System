@@ -1,0 +1,59 @@
+{% extends "Super.html" %}
+
+{% block content %}
+    <h2>Create New Author</h2>
+    <form id="frm" name="frm" method="post" action="/VideoUpload">
+      <div class="form-group row">
+        <label for="Author" class="col-sm-2 col-form-label">Author Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="author" id="author" placeholder="Author Name" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="Keywords" class="col-sm-2 col-form-label">Keywords</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="keywords" id="keywords" placeholder="Keywords" required>
+        </div>
+      </div>
+
+      
+      <div class="form-group row">
+        <label for="FileSize" class="col-sm-2 col-form-label">File Size</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="fileSize" id="fileSize" placeholder="File Size" required>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="VideoUpload" class="col-sm-2 col-form-label">Media Format</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="mediaFormat" id="mediaFormat" placeholder="Media Format" required>
+        </div>
+      </div>
+        <div class="form-group row">
+        <label for="VideoUpload" class="col-sm-2 col-form-label">Closed Caption</label>
+        <div class="col-sm-10">
+          <textarea row="5" cols="100" class="form-control" name="closedCaption" id="closedCaption" placeholder="ClosedCaption" required>
+          </textarea>
+        </div>
+      </div>
+       <div class="form-group row">
+        <label for="VideoUpload" class="col-sm-2 col-form-label">Content</label>
+        <div class="col-sm-10">
+          <textarea row="5" cols="100" class="form-control" name="contentData" id="contentData" placeholder="Content" required>
+          </textarea>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="VideoUpload" class="col-sm-2 col-form-label">Video</label>
+        <div class="col-sm-10">
+          <input type="File" class="form-control" name="videoFileName" id="videoFileName" placeholder="Video" required>
+        </div>
+      </div>
+      
+      <div class="text-center">
+            <button type="submit" class="btn btn-outline-primary btn-sm ">Create</button>
+            <a href="/FrmCancel" class="btn btn-outline-primary btn-sm ">Cancel</a>            
+      </div>
+    </form>
+    
+{% endblock %}
